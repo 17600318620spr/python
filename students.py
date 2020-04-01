@@ -1,3 +1,7 @@
+'''
+这是一个判断学生成绩是否达标的程序，要求输入学生数量，以及各个学生物理、数学、历史三科的成绩，
+如果总成绩小于 120，程序打印 “failed”，否则打印 “passed”。
+'''
 #!/usr/bin/env python3
 n = int(input("Enter the number of students: "))
 data = {} # 用来存储数据的字典变量?
@@ -15,3 +19,9 @@ for x, y in data.items():
         print(x, "failed :(")
     else:
         print(x, "passed :)")
+
+'''
+name 和 marks 是变量，name 用来存储学生的名称，marks 是个列表，用来存储输入的学生的成绩数据。
+data 是个字典，字典的键值对中，键指的是 name 的值，值指的是 marks 的值。因此会使用 data[name] = marks将学生数据存入到 data 字典。
+最后通过 for 循环遍历字典，x 为学生的 name，y 为学生成绩列表 marks，sum() 函数会将传入的列表进行加和。
+'''
