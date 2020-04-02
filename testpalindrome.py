@@ -1,3 +1,6 @@
+'''
+编写一个函数来检查给出的字符串是否为回文，然后返回 True 或者 False。
+'''
 #!/usr/bin/env python3
 def palindrome(s):
     return s==s[::-1]
