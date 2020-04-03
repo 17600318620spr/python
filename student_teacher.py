@@ -1,3 +1,8 @@
+'''
+在这个例子中你能看到我们是怎样在 Student 类和 Teacher 类中调用 Person 类的 __init__ 方法。
+我们也在 Student 类和 Teacher 类中重写了 Person 类的 get_details() 方法。
+因此，当我们调用 student1 和 teacher1 的 get_details() 方法时，使用的是各自类（Student 和 Teacher）中定义的方法。
+'''
 #!/usr/bin/env python3
 
 class Person(object):
