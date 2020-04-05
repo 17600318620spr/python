@@ -1,9 +1,6 @@
-'''
-在这个例子中你能看到我们是怎样在 Student 类和 Teacher 类中调用 Person 类的 __init__ 方法。
-我们也在 Student 类和 Teacher 类中重写了 Person 类的 get_details() 方法。
-因此，当我们调用 student1 和 teacher1 的 get_details() 方法时，使用的是各自类（Student 和 Teacher）中定义的方法。
-'''
 #!/usr/bin/env python3
+import sys
+from collections import Counter
 
 class Person(object):
     """
@@ -19,16 +16,20 @@ class Person(object):
         """
         return self.name
 
+    def get_grade(self):
+        return 0
+
 
 class Student(Person):
     """
     返回 Student 对象，采用 name, branch, year 3 个参数
     """
 
-    def __init__(self, name, branch, year):
+    def __init__(self, name, branch, year, grade):
         Person.__init__(self, name)
         self.branch = branch
         self.year = year
+        self.grade = grade
 
     def get_details(self):
         """
@@ -36,23 +37,41 @@ class Student(Person):
         """
         return "{} studies {} and is in {} year.".format(self.name, self.branch, self.year)
 
+    def get_grade(self):
+        common = Counter(self.grade).most_common(4)
+        n1 = 0
+        n2 = 0
+        for item in common:
+            if item[0] != 'D':
+                n1 += item[1]
+            else:
+                n2 += item[1]
+        print("Pass: {}, Fail: {}".format(n1,n2))
 
 class Teacher(Person):
     """
     返回 Teacher 对象，采用字符串列表作为参数
     """
-    def __init__(self, name, papers):
+    def __init__(self, name, papers, grade):
         Person.__init__(self, name)
         self.papers = papers
+        self.grade = grade
 
     def get_details(self):
         return "{} teaches {}".format(self.name, ','.join(self.papers))
 
+    def get_grade(self):
+        s = []
+        common = Counter(self.grade).most_common(4)
+        for i,j in common:
+            s.append("{}: {}".format(i,j))
+        print(', '.join(s))
 
 person1 = Person('Sachin')
-student1 = Student('Kushal', 'CSE', 2005)
-teacher1 = Teacher('Prashad', ['C', 'C++'])
+if sys.argv[1] == "student":
+    student1 = Student('Kushal', 'CSE', 2005, sys.argv[2])
+    student1.get_grade()
+else:
+    teacher1 = Teacher('Prashad', ['C', 'C++'], sys.argv[2])
+    teacher1.get_grade()
 
-print(person1.get_details())
-print(student1.get_details())
-print(teacher1.get_details())
