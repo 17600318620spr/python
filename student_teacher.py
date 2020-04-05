@@ -1,3 +1,18 @@
+'''
+1.在 Person() 类中增添函数 get_grade()
+2.对于教师类，get_grade() 函数可以自动统计出老师班上学生的得分情况并按照频率的高低以 A: X, B: X, C: X, D: X 的形式打印出来
+3.对于学生类，get_grade() 函数则可以以 Pass: X, Fail: X 来统计自己的成绩情况（A,B,C 为 Pass, 如果得了 D 就认为是 Fail）
+
+要求：
+1.根据命令行中的第一个参数 teacher 或者 student 来判断最终输出的格式。
+2.命令行中第二个输入的参数是需要统计的字符串
+
+提示：
+1.Teacher 及 Student 类的 __init__() 也要增加 grade 参数
+2.import sys
+3.collections 中的 Counter 子类
+4.format() 以及 join
+'''
 #!/usr/bin/env python3
 import sys
 from collections import Counter
