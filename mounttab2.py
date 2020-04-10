@@ -1,3 +1,7 @@
+'''
+重构 mounttab.py
+现在我们在 mounttab2.py 中重构了上面的代码并且有一个我们能容易的测试的新函数 parse_mounts()。
+'''
 import os
 
 def parse_mounts():
