@@ -1,2 +1,1 @@
-# python
-Arithmetic
+# python简明教程
