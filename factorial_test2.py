@@ -1,3 +1,7 @@
+'''
+如果我们在 factorial.py 中调用 div(0)，我们能看到异常被抛出。
+我们也能测试这些异常，就像这样：self.assertRaises(ZeroDivisionError, div, 0)
+'''
 import unittest
 from factorial import fact, div
 
